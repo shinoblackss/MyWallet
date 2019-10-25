@@ -22,12 +22,20 @@ class WalletController extends Controller
 
     public function store(Request $request){
 
+
+        if($request->description[0] == null)
+        {
+            $description = 'no name';
+        }else{
+            $description = $request->description[0];
+        }
+
         $wallet = Wallet::find($request->wallet_id);
         $wallet->money = $wallet->money + $request->amount[0];
         $wallet->update();
 
         $transfer = Transfer::create([
-            'description' => $request->description[0],
+            'description' => $description,
             'amount' => $request->amount[0],
             'wallet_id' => $request->wallet_id,
         ]);

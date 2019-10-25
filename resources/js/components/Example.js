@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import TransferForm from './TransferForm'
 import TransferList from './TransferList'
+import ip from './Utility'
 
 
 
@@ -28,6 +29,7 @@ export default class Example extends Component {
 
     async handleSubmit(e){
         e.preventDefault()
+
         try {
             let config = {
                 method: 'POST',
@@ -38,7 +40,7 @@ export default class Example extends Component {
                 body: JSON.stringify(this.state.form)
             }
 
-            let res = await fetch('http://127.0.0.1:8000/api/transfer', config)
+            let res = await fetch(`${ip}/api/transfer`, config)
             let data = await res.json()
 
             this.setState({
@@ -64,7 +66,8 @@ export default class Example extends Component {
 
     async componentDidMount(){
         try {
-            let res = await fetch('http://127.0.0.1:8000/api/wallet')
+            console.log(ip);
+            let res = await fetch(`${ip}/api/wallet`)
             let data = await res.json()
 
             console.log(data)
@@ -103,6 +106,10 @@ export default class Example extends Component {
                         transfers={this.state.transfers}
                     />
                 </div>
+
+                <footer>
+                    <h4 className="text-primary pt-5">Gabriel Marin - 2019</h4>
+                </footer>
             </>
         )
     }

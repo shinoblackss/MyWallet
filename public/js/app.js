@@ -52142,6 +52142,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _TransferForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TransferForm */ "./resources/js/components/TransferForm.js");
 /* harmony import */ var _TransferList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./TransferList */ "./resources/js/components/TransferList.js");
+/* harmony import */ var _Utility__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Utility */ "./resources/js/components/Utility.js");
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -52171,6 +52172,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -52225,7 +52227,7 @@ function (_Component) {
                   body: JSON.stringify(this.state.form)
                 };
                 _context.next = 5;
-                return fetch('http://127.0.0.1:8000/api/transfer', config);
+                return fetch("".concat(_Utility__WEBPACK_IMPORTED_MODULE_5__["default"], "/api/transfer"), config);
 
               case 5:
                 res = _context.sent;
@@ -52282,36 +52284,37 @@ function (_Component) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.prev = 0;
-                _context2.next = 3;
-                return fetch('http://127.0.0.1:8000/api/wallet');
+                console.log(_Utility__WEBPACK_IMPORTED_MODULE_5__["default"]);
+                _context2.next = 4;
+                return fetch("".concat(_Utility__WEBPACK_IMPORTED_MODULE_5__["default"], "/api/wallet"));
 
-              case 3:
+              case 4:
                 res = _context2.sent;
-                _context2.next = 6;
+                _context2.next = 7;
                 return res.json();
 
-              case 6:
+              case 7:
                 data = _context2.sent;
                 console.log(data);
                 this.setState({
                   money: data.money,
                   transfers: data.tranfers
                 });
-                _context2.next = 15;
+                _context2.next = 16;
                 break;
 
-              case 11:
-                _context2.prev = 11;
+              case 12:
+                _context2.prev = 12;
                 _context2.t0 = _context2["catch"](0);
                 this.setState([_context2.t0]);
                 console.log('error :', _context2.t0);
 
-              case 15:
+              case 16:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, this, [[0, 11]]);
+        }, _callee2, this, [[0, 12]]);
       }));
 
       function componentDidMount() {
@@ -52341,7 +52344,9 @@ function (_Component) {
         className: "m-t-md"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_TransferList__WEBPACK_IMPORTED_MODULE_4__["default"], {
         transfers: this.state.transfers
-      })));
+      })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("footer", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h4", {
+        className: "text-primary pt-5"
+      }, "Gabriel Marin - 2019")));
     }
   }]);
 
@@ -52447,6 +52452,20 @@ var TransferList = function TransferList(_ref) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (TransferList);
+
+/***/ }),
+
+/***/ "./resources/js/components/Utility.js":
+/*!********************************************!*\
+  !*** ./resources/js/components/Utility.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var ip = 'http://192.168.1.50:8000';
+/* harmony default export */ __webpack_exports__["default"] = (ip);
 
 /***/ }),
 
